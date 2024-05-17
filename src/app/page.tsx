@@ -1,3 +1,4 @@
+import { ToastFromServerRedirect } from "./_components/sample/ToastFromServerRedirect";
 import { ToastOnButtonClick } from "./_components/sample/ToastOnButtonClick";
 import { ToastOnLoad } from "./_components/sample/ToastOnLoad";
 import { ToastWithNavigation } from "./_components/sample/ToastWithNavigation";
@@ -10,6 +11,7 @@ export default function Home() {
         <ToastOnButtonClick />
         <ToastWithNavigation />
         <ToastOnLoad />
+        <ToastFromServerRedirect />
       </div>
     </div>
   );
