@@ -17,7 +17,12 @@ function ToastProvider({ children }: { children: React.ReactNode }) {
 
   const toast = (message: string) => {
     setTimeout(() => {
-      setToasts((prev) => [...prev, { id: new Date().toISOString(), message }]);
+      setToasts((prev) => {
+        // Prevent duplicate toasts
+        if (prev.find((toast) => toast.message === message)) return prev;
+
+        return [...prev, { id: new Date().toISOString(), message }];
+      });
     }, 100);
   };
 
