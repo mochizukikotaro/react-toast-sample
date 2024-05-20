@@ -11,8 +11,8 @@ export function ToastByQuery() {
   const toastType = searchParams.get("toast_type");
   useEffect(() => {
     if (toastType === "hello") {
-      toast(`Toast 🍞 ${toastType}`);
       router.replace("/toast-by-query");
+      toast(`Toast 🍞 ${toastType}`);
     }
   }, [toastType]);
   return <></>;

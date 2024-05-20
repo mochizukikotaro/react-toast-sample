@@ -9,7 +9,7 @@ export function Toast({ toast, removeToast }: Props) {
   useEffect(() => {
     const timer = setTimeout(() => {
       removeToast(toast.id);
-    }, 3000);
+    }, 5000);
 
     return () => {
       clearTimeout(timer);

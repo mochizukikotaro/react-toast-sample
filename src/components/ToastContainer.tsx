@@ -1,3 +1,5 @@
+"use client";
+
 import { ToastType } from "@/contexts/ToastContext";
 import { Toast } from "./Toast";
 

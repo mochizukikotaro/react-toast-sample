@@ -1,4 +1,5 @@
 "use client";
+import { NavigationEvents } from "@/components/NavigationEvent";
 import { ToastContainer } from "@/components/ToastContainer";
 import { createContext, useState } from "react";
 
@@ -15,17 +16,24 @@ function ToastProvider({ children }: { children: React.ReactNode }) {
   const [toasts, setToasts] = useState<ToastType[]>([]);
 
   const toast = (message: string) => {
-    setToasts((prev) => [...prev, { id: new Date().toISOString(), message }]);
+    setTimeout(() => {
+      setToasts((prev) => [...prev, { id: new Date().toISOString(), message }]);
+    }, 100);
   };
 
   const removeToast = (id: string) => {
     setToasts((prev) => prev.filter((toast) => toast.id !== id));
   };
 
+  const clearToasts = () => {
+    setToasts([]);
+  };
+
   return (
     <ToastContext.Provider value={toast}>
       {children}
       <ToastContainer toasts={toasts} removeToast={removeToast} />
+      <NavigationEvents clearToasts={clearToasts} />
     </ToastContext.Provider>
   );
 }
